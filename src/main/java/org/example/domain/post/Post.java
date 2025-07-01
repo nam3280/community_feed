@@ -1,5 +1,6 @@
 package org.example.domain.post;
 
+import org.example.domain.post.content.PostContent;
 import org.example.domain.user.User;
 
 public class Post {
