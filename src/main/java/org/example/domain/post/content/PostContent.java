@@ -1,4 +1,4 @@
-package org.example.domain.post;
+package org.example.domain.post.content;
 
 import org.example.domain.post.content.Content;
 
