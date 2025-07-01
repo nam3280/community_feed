@@ -1,7 +1,5 @@
 package org.example.domain.post.content;
 
-import org.example.domain.post.content.Content;
-
 public class PostContent extends Content {
     private static final int MIN_POST_LENGTH = 5;
     private static final int MAX_POST_LENGTH = 500;
