@@ -1,4 +1,4 @@
-package org.example.user.domain;
+package org.example.domain.user;
 
 public class UserRelationCounter {
     private int count;

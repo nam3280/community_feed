@@ -1,4 +1,4 @@
-package org.example.user.domain;
+package org.example.domain.user;
 
 import java.util.Objects;
 
