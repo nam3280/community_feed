@@ -20,7 +20,7 @@ public class User {
             throw new IllegalArgumentException();
 
         followingCounter.increase();
-        targetUser.followerCounter.increase();
+        increaseFollowerCount();
     }
 
     public void unFollow(User targetUser){
@@ -28,7 +28,15 @@ public class User {
             throw new IllegalArgumentException();
 
         followingCounter.decrease();
-        targetUser.followerCounter.decrease();
+        decreaseFollowerCount();
+    }
+
+    private void increaseFollowerCount(){
+        followerCounter.increase();
+    }
+
+    private void decreaseFollowerCount(){
+        followerCounter.decrease();
     }
 
     @Override
