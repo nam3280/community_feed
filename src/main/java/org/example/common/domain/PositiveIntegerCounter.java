@@ -1,4 +1,4 @@
-package org.example.common;
+package org.example.common.domain;
 
 public class PositiveIntegerCounter {
     private int count;

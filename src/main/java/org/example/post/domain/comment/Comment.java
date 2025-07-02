@@ -1,9 +1,9 @@
-package org.example.domain.comment;
+package org.example.post.domain.comment;
 
-import org.example.common.PositiveIntegerCounter;
-import org.example.domain.post.Post;
-import org.example.domain.post.content.Content;
-import org.example.domain.user.User;
+import org.example.common.domain.PositiveIntegerCounter;
+import org.example.post.domain.Post;
+import org.example.post.domain.common.Content;
+import org.example.user.domain.User;
 
 public class Comment {
     private final Long id;
@@ -38,5 +38,12 @@ public class Comment {
 
     public void unlike(){
         likeCounter.decrease();
+    }
+
+    public void updateComment(User user, String updateContent){
+        if(!this.author.equals(user))
+            throw new IllegalArgumentException();
+
+        this.content.updateContent(updateContent);
     }
 }

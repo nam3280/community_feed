@@ -1,14 +1,15 @@
-package org.example.domain.post;
+package org.example.post.domain;
 
-import org.example.common.PositiveIntegerCounter;
-import org.example.domain.post.content.PostContent;
-import org.example.domain.user.User;
+import org.example.common.domain.PositiveIntegerCounter;
+import org.example.post.domain.post.content.PostContent;
+import org.example.user.domain.User;
 
 public class Post {
     private final Long id;
     private final User author;
     private final PostContent content;
     private final PositiveIntegerCounter likeCount;
+    private PostPublicationState state;
 
     public Post(Long id, User author, PostContent content, PositiveIntegerCounter likeCount) {
         if(author == null)
@@ -18,6 +19,7 @@ public class Post {
         this.author = author;
         this.content = content;
         this.likeCount = new PositiveIntegerCounter();
+        this.state = PostPublicationState.PUBLIC;
     }
 
     public void like(User user){
@@ -29,5 +31,13 @@ public class Post {
 
     public void unlike(){
         likeCount.decrease();
+    }
+
+    public void updatePost(User user, String updateContent, PostPublicationState state){
+        if(!this.author.equals(user))
+            throw new IllegalArgumentException();
+
+        this.state = state;
+        this.content.updateContent(updateContent);
     }
 }

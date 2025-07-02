@@ -1,4 +1,4 @@
-package org.example.domain.user;
+package org.example.user.domain;
 
 public class UserInfo {
     private final String name;

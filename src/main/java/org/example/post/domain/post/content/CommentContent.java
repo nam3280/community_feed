@@ -1,6 +1,8 @@
-package org.example.domain.post.content;
+package org.example.post.domain.post.content;
 
-public class CommentContent extends Content{
+import org.example.post.domain.common.Content;
+
+public class CommentContent extends Content {
     private static final int MAX_POST_LENGTH = 100;
 
     public CommentContent(String contentText) {

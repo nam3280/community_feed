@@ -1,4 +1,6 @@
-package org.example.domain.post.content;
+package org.example.post.domain.post.content;
+
+import org.example.post.domain.common.Content;
 
 public class PostContent extends Content {
     private static final int MIN_POST_LENGTH = 5;

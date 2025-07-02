@@ -1,6 +1,6 @@
-package org.example.domain.user;
+package org.example.user.domain;
 
-import org.example.common.PositiveIntegerCounter;
+import org.example.common.domain.PositiveIntegerCounter;
 
 import java.util.Objects;
 
