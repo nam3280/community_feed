@@ -7,30 +7,30 @@ import java.util.Objects;
 public class User {
     private final Long id;
     private final UserInfo info;
-    private final PositiveIntegerCounter followingCounter;
+    private final PositiveIntegerCounter followingCount;
     private final PositiveIntegerCounter followerCounter;
 
     public User(Long id, UserInfo userInfo) {
         this.id = id;
         this.info = userInfo;
-        this.followingCounter = new PositiveIntegerCounter();
+        this.followingCount = new PositiveIntegerCounter();
         this.followerCounter = new PositiveIntegerCounter();
     }
 
     public void follow(User targetUser){
-        if(targetUser.equals(this))
+        if(this.equals(targetUser))
             throw new IllegalArgumentException();
 
-        followingCounter.increase();
-        increaseFollowerCount();
+        followingCount.increase();
+        targetUser.increaseFollowerCount();
     }
 
     public void unFollow(User targetUser){
-        if(targetUser.equals(this))
+        if(this.equals(targetUser))
             throw new IllegalArgumentException();
 
-        followingCounter.decrease();
-        decreaseFollowerCount();
+        followingCount.decrease();
+        targetUser.decreaseFollowerCount();
     }
 
     private void increaseFollowerCount(){
@@ -62,5 +62,13 @@ public class User {
 
     public UserInfo getInfo() {
         return info;
+    }
+
+    public int followerCount() {
+        return followerCounter.getCount();
+    }
+
+    public int followingCount() {
+        return followingCount.getCount();
     }
 }
