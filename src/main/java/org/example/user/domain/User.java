@@ -59,4 +59,8 @@ public class User {
     public Long getId() {
         return id;
     }
+
+    public UserInfo getInfo() {
+        return info;
+    }
 }
